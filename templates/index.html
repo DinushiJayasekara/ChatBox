@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="shortcut icon" type="image/png" href="/static/favicon.png"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script src="/static/script.js"></script>
+        <title>Chatbox</title>
+    </head>
+    <body>
+      <br>
+      <div class="text-center">
+        <img src="/static/title.png" alt="Name" width="230px" class="img-fluid">
+      </div>
+      <div class="row" style="padding: 20px 200px;">
+        <div class="col-4 bg-danger text-white rounded border border-dark shadow p-3 mb-5">
+            <div class="">
+              <h2 class="text-center">Welcome to ChatBoX, <span id="username"></span>!</h2>
+              <br>
+            </div>
+
+            <form id="new-chatroom">
+              <br>
+              <div class="form-group">
+                <label for="chatroom">Create a ChatRooM:</label>
+                <div class="d-flex bd-highlight">
+                  <input id="chatroom" class="form-control p-2 flex-grow-1 bd-highlight" autocomplete="off" required type="text" >
+                  <input type="submit" id="new-chatroom" class="btn btn-dark btn-sm" value="Create">
+                </div>
+              </div>
+            </form>
+
+            <br>
+            <h4></h4>
+            <br>
+
+            <label for="chatrooms">Enter a ChatRooM:</label>
+            <select id="chatrooms" class="form-control" onchange="roomDets(); rememberChannel();">
+              <option></option>
+              <option>General</option>
+            </select><br>
+            <br>
+            <button class="btn btn-dark btn-lg m-5" type="button" id="removeAccount">Delete your Username</button>
+
+        </div>
+
+        <div class="col bg-secondary text-white rounded border border-white shadow p-3 mb-5">
+          <br>
+
+          <ul id="oldmsgs">
+          </ul>
+
+          <p id="enterRoom" class="text-center"></p>
+
+          <ul id="newmsgs" class="text-right mr-5">
+          </ul>
+
+          <form id="type-message">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col">
+                  <input id="message" class="form-control p-2 flex-fill bd-highlight" autofocus autocomplete="off" type="text" placeholder="Type your message here"/>
+                </div>
+
+                <div class="col  d-flex bd-highlight">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <button class="pl-3 pr-3 ml-3 mr-2 flex-fill bd-highlight btn btn-dark btn-sm" id="send-message" ><i class="fas fa-location-arrow"></i></button>
+                </div>
+            </div>
+          </form>
+          <br>
+        </div>
+    </body>
+</html>
